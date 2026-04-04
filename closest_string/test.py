@@ -32,13 +32,17 @@ def execute_test(args):
         torch.cuda.manual_seed(args.seed)
 
     # model
-    model_class, model_args, state_dict, distance = torch.load(args.encoder_path)
-    encoder_model = model_class(**vars(model_args))
+    model_class, model_args, state_dict, distance = torch.load(args.encoder_path, weights_only=False)
+    base_model = model_class(**vars(model_args))
 
     # Restore best model
     print('Loading model ' + args.encoder_path)
-    encoder_model.load_state_dict(state_dict)
+    base_model.load_state_dict(state_dict)
+    from edit_distance.models.pair_encoder import PairEmbeddingDistance
+    scaling = (distance == "hyperbolic")
+    encoder_model = PairEmbeddingDistance(base_model, distance=distance, scaling=scaling)
     encoder_model.eval()
+    encoder_model = encoder_model.to(device)
 
     closest_string_testing(encoder_model, args.data, args.batch_size, device, distance)
 
@@ -87,7 +91,8 @@ def test(loader, model, embedded_reference, distance, device, slots=10):
 
         distance_matrix = distance(embedded_reference, embedded, model.scaling)
 
-        label_distances = distance_matrix[labels.long(), torch.arange(0, distance_matrix.shape[1])]
+        distance_matrix = distance_matrix.to(device)
+        label_distances = distance_matrix[labels.long(), torch.arange(0, distance_matrix.shape[1], device=device)]
         rank = torch.sum(torch.le(distance_matrix, label_distances.unsqueeze(0)).float(), dim=0)
 
         acc = [torch.mean((rank <= i + 1).float()) for i in range(slots)]

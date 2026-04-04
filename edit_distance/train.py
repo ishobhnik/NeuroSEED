@@ -13,8 +13,6 @@ from closest_string.test import closest_string_testing
 from edit_distance.task.dataset import EditDistanceDatasetSampled, EditDistanceDatasetComplete
 from edit_distance.models.hyperbolics import RAdam
 from edit_distance.models.pair_encoder import PairEmbeddingDistance
-from hierarchical_clustering.unsupervised.unsupervised import hierarchical_clustering_testing
-from multiple_alignment.guide_tree.guide_tree import approximate_guide_trees
 from util.data_handling.data_loader import get_dataloaders
 from util.ml_and_math.loss_functions import MAPE
 from util.ml_and_math.loss_functions import AverageMeter
@@ -153,18 +151,6 @@ def execute_train(model_class, model_args, args):
         print("Closest string retrieval")
         closest_string_testing(encoder_model=model, data_path=args.closest_data_path,
                                batch_size=args.batch_size, device=device, distance=args.distance)
-
-    # Hierarchical clustering
-    if args.hierarchical_data_path != '':
-        print("Hierarchical clustering")
-        hierarchical_clustering_testing(encoder_model=model, data_path=args.hierarchical_data_path,
-                                        batch_size=args.batch_size, device=device, distance=args.distance)
-
-    # MSA tree construction on test set
-    if args.construct_msa_tree == 'True':
-        print("MSA tree construction")
-        approximate_guide_trees(encoder_model=model, dataset=datasets['test'],
-                                batch_size=args.batch_size, device=device, distance=args.distance)
 
     # Extra datasets testing (e.g. extrapolation)
     if args.extr_data_path != '':

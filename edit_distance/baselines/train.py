@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import linkage
 from scipy.spatial.distance import squareform
 
-from hierarchical_clustering.relaxed.datasets.loading import load_hc_data
+from hierarchical_clustering.relaxed.datasets.hc_dataset import load_hc_data
 from hierarchical_clustering.relaxed.utils.metrics import dasgupta_cost
 from hierarchical_clustering.relaxed.utils.tree import to_nx_tree
 from util.distance_functions.distance_functions import hyperbolic_distance_numpy

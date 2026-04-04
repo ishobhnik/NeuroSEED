@@ -5,7 +5,7 @@ import numpy as np
 from edit_distance.baselines.train import general_arg_parser, test_method
 
 
-def kmer(S, k, alphabet_size=4, compress_zeros=False):
+def kmer(S, k, alphabet_size=5, compress_zeros=False):
     kernel = [alphabet_size**p for p in range(k)]
     kmers = np.apply_along_axis(partial(np.convolve, v=kernel, mode='valid'), 1, S)
 
