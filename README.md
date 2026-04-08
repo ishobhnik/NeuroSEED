@@ -1,4 +1,7 @@
-This project was done under the guidance of Prof. Chirag Jain as a part of a course project by [Manya](https://github.com/BerryPony) and  [Shobhnik](https://github.com/ishobhnik).
+This project was done under the guidance of Prof. Chirag Jain as a part of a course project by [Manya Ganapathy](https://github.com/BerryPony) and  [Shobhnik Kriplani](https://github.com/ishobhnik).
+
+
+Lecture slides can be found [here](https://indianinstituteofscience-my.sharepoint.com/:p:/g/personal/shobhnikk_iisc_ac_in/IQBqlOdflRqLRos5YD1KLB8OAcMlfNq89vGrqPmm1OhvGRg?e=BhTycx).
 
 ## Neural Distance Embeddings for Biological Sequences
 
