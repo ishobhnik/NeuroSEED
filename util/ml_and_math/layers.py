@@ -128,3 +128,5 @@ class GatedCNNLayer(nn.Module):
         B = self.conv_gate(x)
         x = A * torch.sigmoid(B)
         return x
+    
+    

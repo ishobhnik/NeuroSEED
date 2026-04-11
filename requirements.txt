@@ -1,10 +1,11 @@
 Cython
 numpy
 torch
+pandas
 networkx
-tqdm
 scipy
 geoopt
 biopython
 python-Levenshtein
 matplotlib
+tqdm

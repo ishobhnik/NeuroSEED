@@ -5,7 +5,7 @@ Lecture slides can be found [here](https://indianinstituteofscience-my.sharepoin
 
 ## Neural Distance Embeddings for Biological Sequences
 
-![diagram](./tutorial/cover.png)
+![diagram](./assets/cover.png)
 
 ## Overview
 
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 # Edit Distance Approximation and Closet String Retrieval 
 
-![diagram](./tutorial/edit_diagram.PNG)
+![diagram](./assets/edit_diagram.PNG)
 
 ## Folder structure:
 
