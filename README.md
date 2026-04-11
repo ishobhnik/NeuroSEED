@@ -170,17 +170,6 @@ python -m edit_distance.models.feedforward.train --distance=manhattan --lr=0.01 
 
 python -m edit_distance.models.feedforward.train --distance=square --lr=0.01 --weight_decay=0.0 --dropout=0.0 --embedding_size=128 --layer=1 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
 
-# MLP
-python -m edit_distance.models.feedforward.train --loss=mse --distance=euclidean --batch_norm=True --lr=0.01 --weight_decay=1e-5 --dropout=0.0 --embedding_size=128 --hidden_size=256 --layer=2 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
-
-python -m edit_distance.models.feedforward.train --scaling=True --loss=mse --distance=hyperbolic --batch_norm=True --lr=0.01 --weight_decay=0.0 --dropout=0.0 --embedding_size=128 --hidden_size=256 --layer=3 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
-
-python -m edit_distance.models.feedforward.train --loss=mse --distance=manhattan --batch_norm=True --lr=0.01 --weight_decay=1e-5 --dropout=0.0 --embedding_size=128 --hidden_size=128 --layer=2 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
-
-python -m edit_distance.models.feedforward.train --loss=mse --distance=square --batch_norm=True --lr=0.01 --weight_decay=1e-5 --dropout=0.0 --embedding_size=128 --hidden_size=256 --layer=3 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
-
-python -m edit_distance.models.feedforward.train --loss=mse --distance=cosine --batch_norm=True --lr=0.01 --weight_decay=1e-5 --dropout=0.0 --embedding_size=128 --hidden_size=256 --layer=3 --print_every=5 --patience=50 --epochs=500 --batch_size=128 --data="./edit_green_large.pkl"
-
 # CNN
 python -m edit_distance.models.cnn.train --distance=cosine --loss=mse --batch_norm=True --lr=0.001 --weight_decay=0.0 --dropout=0.0 --embedding_size=128 --channels=16 --kernel_size=5 --pooling=avg --non_linearity=True --layers=4 --readout_layers=1 --print_every=5 --epochs=500 --patience=50 --batch_size=128 --data="./edit_green_large.pkl"
 
